@@ -9,16 +9,17 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-      <h1>Friend List</h1>
+      <h1>Friends</h1>
       <ul>
           <li>
             <Link to="/public">Public Page</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected">Friend List</Link>
           </li>
       </ul>
       <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/protected" component={Protected} />
       </div>
       </Router>
     );
