@@ -2,6 +2,7 @@ import React from 'react';
 import { getFriends } from '../actions';
 import { connect } from 'react-redux';
 import Friend from './Friend';
+import FriendForm from './FriendForm';
 
 class Protected extends React.Component {
     componentDidMount() {
@@ -12,7 +13,9 @@ class Protected extends React.Component {
         return (
           <div>
             <header>
+              <h4>Add a Friend</h4>
               <h1>Friend List</h1>
+              <FriendForm />
             </header>
             {this.props.gettingFriends ? (
               <h3>Getting Friends</h3>
@@ -20,14 +23,14 @@ class Protected extends React.Component {
               <div>
                 {this.props.friends.map(friend => {
                   return (
-                  <div>
-              <Friend
-                name={friend.name}
-                id={friend.id}
-                age={friend.age}
-                email={friend.email}
-                key={friend.id}     
-              />
+                  <div>  
+                    <Friend
+                        name={friend.name}
+                        id={friend.id}
+                        age={friend.age}
+                        email={friend.email}
+                        key={friend.id}     
+                    />
                   </div>
                   );
                 })}
